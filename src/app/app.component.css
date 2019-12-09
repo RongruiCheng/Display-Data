@@ -1,0 +1,27 @@
+a{
+    text-decoration: none;
+    width: 60px;
+    height: 30px;
+    background: #eee;
+    border: 1px solid rgb(238, 182, 182);
+    color:rgb(109, 104, 104);
+    margin-right: 20px;
+}
+button{
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: rgb(223, 24, 24);
+    margin: 10px;
+}
+.message{
+    width: 60px;
+    height: 60px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 300%;
+    font-size: 20px;
+    color: red;
+    background-color: #000;
+}

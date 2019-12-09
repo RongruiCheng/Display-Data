@@ -1,0 +1,107 @@
+<h3>{{title}}</h3>
+<h3>My favorite hero is: {{myHero.name}}</h3>
+<p>Heroes:</p>
+<p *ngIf="heroes.length > 3">There are many heroes</p>
+<p>The sum of 1 + 1: is {{1+1 + getVal()}}</p>
+<ul>
+    <li *ngFor="let hero of heroes; let i = index; trackBy:trackByHeroes">
+        {{hero.id}}-{{ hero.name }}-{{i}}
+        <button (click)="deleteHero()" [disabled]="i === sem ? true : false">DELETE</button>
+        <button (click)="change(i)">change Disabled</button>
+    </li>
+<ul>
+<table border="1">
+     <!--  expression calculates colspan=2 -->
+  <tr><td [attr.colspan]="1 + 1">One-Two</td></tr>
+
+  <!-- ERROR: There is no `colspan` property to set!
+    <tr><td colspan="{{1 + 1}}">Three-Four</td></tr>
+  -->
+
+  <tr><td>Five</td><td>Six</td></tr>
+</table>
+<hr>
+<!-- 动态添加或移除单个类名 -->
+<div class="bad special" [class]="bad">移除special类</div>
+<div [class.cur]="iscur">根据iscur判断是否加cur类</div>
+<div class="cur" [class.cur]="!iscur">移除cur类</div> 
+<!-- 动态设置内联样式 -->
+<!-- <button [style.color] = "iscur ? 'red' : 'green'">red</button>
+<button [style.font-size.em] = "iscur ? 2 : 1">Big</button>
+<button [style.font-size.%] = "!iscur ? 150 : 50">Small</button>
+<button [style.font-size.px] = "iscur ? 50 : 10">Big</button> -->
+
+<!-- <input [value]="currentItem.name" (input)="currentItem.name=$event.target.value"/> -->
+
+<!-- 双向绑定 -->
+<h3>双向绑定</h3>
+<app-sizer [(size)]="fontSizePx" (changeSize)="changeSize($event)"></app-sizer>
+<!-- <app-sizer [size]="fontSizePx" (changeSize)="fontSizePx = $event "></app-sizer> -->
+<div [style.fontSize.px] = "fontSizePx">Father-fontSize:{{fontSizePx}}</div>
+
+<hr>
+<!-- ngClass 添加或移除多个css类名-->
+<div [ngClass]="currentClasses">添加或移除多个css类名</div>
+<!-- ngStyle 添加或移除多个内联样式 -->
+<div [ngStyle]="currentStyles">添加或移除多个内联样式</div>
+<hr>
+<!-- ngModel 双向绑定表单元素 -->
+<h3>{{currentHero.name}}</h3>
+<p>
+    <input [value]="currentHero.name" (input)="currentHero.name = $event.target.value"/>
+    <label>(value属性绑定和input事件绑定)</label>
+</p>
+<p>
+    <input [ngModel]="currentHero.name" (ngModelChange)="currentHero.name = $event"/>
+    <label>(NgModel和NgModelChange绑定)</label>
+</p>
+<p>
+    <input [ngModel]="currentHero.name" (ngModelChange)="setUpperCase($event)"/>
+    <label>(NgModel和NgModelChange绑定)实现大写</label>
+</p>
+<p>
+    <input [(ngModel)]="currentHero.name"/>
+    <label>(ngModel双向绑定)</label>
+</p>
+<hr>
+
+<div [ngSwitch]="currentHero.name">
+  <div *ngSwitchCase="'windStorm'">windStorm</div>
+  <div *ngSwitchCase="'Bombasto'">Bombasto</div>
+  <div *ngSwitchCase="'Magneta'">Magneta</div>
+  <div *ngSwitchCase="'Tornado'">Tornado</div>
+  <div *ngSwitchDefault>unknow hero</div>
+</div>
+
+<hr>
+<div>{{currentHero.name | uppercase | lowercase}}</div>
+<div>{{currentHero | json}}</div>
+<div>{{sem | currency:'¥'}}</div>
+
+<!-- 安全导航操作符 ?. -->
+<div>currentHero name is {{currentHero?.name}}</div>
+ <!-- <div>currentHero tag is {{currentHero.tag}}</div>
+<div *ngIf="nullHero">nullHero name is {{nullHero.name}}</div>
+<div>nullHero name is {{ nullHero && nullHero.name}}</div>
+<div>nullHero name is {{  nullHero?.name}}</div> -->
+<!-- 非空断言操作符!. -->
+<!-- <div *ngIf="hero">The hero name is {{hero!.name}}</div> -->
+<!-- 内置模板函数 $any() -->
+<!-- <p>The item's undeclared best by date is: {{$any(this).bestByDate}}</p> -->
+
+<hr>
+<!-- 获取用户输入值 -->
+<!-- <button (click)="onClickme($event)">Click me !</button><br/>
+<input type="text" (keyup)="onKeyUp($event)"><br/>
+<input type="text" #box (keyup)="onKey(box.value)">
+<p>{{values}}</p> -->
+
+<!-- 按键事件过滤 -->
+
+<label>回车键事件:</label>
+<input #box (keyup.enter)="onEnter(box.value)"/>
+<p>{{values}}</p>
+
+ <label>Blur事件:</label>
+<input #box (blur)="update(box.value)"/>
+<p>{{values}}</p>

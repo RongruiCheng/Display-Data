@@ -1,0 +1,9 @@
+<div>
+  <h3>{{a}}</h3>
+  <button (click)="plusa.emit()" id="btn">plus</button>
+  <div>
+    <p>{{hero.name}} can {{power}}</p>
+    <h4>--change log--</h4>
+    <p *ngFor="let log of changeLog">{{log}}</p>
+  </div>
+</div>
