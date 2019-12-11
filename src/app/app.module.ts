@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +13,8 @@ import { DisplayDataComponent } from './display-data/display-data.component';
 import { LifecyleTestComponent } from './lifecyle-test/lifecyle-test.component';
 import { InteractionChildComponent } from './interaction-child/interaction-child.component';
 import { CountdownChildComponent } from './countdown-child/countdown-child.component';
+import { AstronautChildComponent } from './astronaut-child/astronaut-child.component';
+import { AdBannerComponent } from './ad-banner/ad-banner.component';
 
 @NgModule({
    declarations: [
@@ -19,12 +24,17 @@ import { CountdownChildComponent } from './countdown-child/countdown-child.compo
       DisplayDataComponent,
       LifecyleTestComponent,
       InteractionChildComponent,
-      CountdownChildComponent
+      CountdownChildComponent,
+      AstronautChildComponent,
+      AdBannerComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
-      FormsModule
+      FormsModule,
+      BrowserAnimationsModule,
+      MatExpansionModule,
+      MatCheckboxModule
    ],
    providers: [],
    bootstrap: [

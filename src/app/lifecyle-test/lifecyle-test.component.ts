@@ -23,7 +23,7 @@ export class LifecyleTestComponent implements OnInit {
           this.changeLog.push(`父亲传的值:${k}----currentValue=${cur} / PreviousValue = ${prev}`);
         }
       }
-    console.log('ngOnChanges当设置父子组件传值/传值改变的时候调用');
+      console.log('ngOnChanges当设置父子组件传值/传值改变的时候调用');
   }
   ngDoCheck() {
     // ngDoCheck 用来检测Angular忽略的更改(比如引用类型值的改变);

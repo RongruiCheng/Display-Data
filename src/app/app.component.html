@@ -10,7 +10,7 @@
 
 <app-lifecyle-test [a]="a" (plusa)="add()" [hero]="hero" [power]="power"></app-lifecyle-test> -->
 
-<!-- 组件交互 -->
+<!-- ***************组件交互************** -->
 <!-- <h2>使用setter&getter截听输入属性值的变化</h2> -->
 <!-- <h2>Master controls {{names.length}} names</h2> -->
 <!-- <app-interaction-child *ngFor="let name of names" [name]="name"></app-interaction-child> -->
@@ -20,15 +20,54 @@
 <button (click)="newMajor()">最新大版本</button>
 <app-interaction-child [major]="major" [minor]="minor"></app-interaction-child> -->
 
-<h2>父组件钩去子组件的属性和方法:</h2>
+<!-- <h2>父组件钩去子组件的属性和方法:</h2> -->
 <!-- <h3>本地变量(#child)</h3>
 <button (click)=timer.start()>Start</button>
 <button (click)=timer.stop()>Stop</button>
 <div class="message">{{timer.seconds}}</div>
 <app-countdown-child #timer></app-countdown-child> -->
 
-<h2>父组件调用@ViewChild</h2>
+<!-- <h2>父组件调用@ViewChild</h2>
 <button (click)=start()>Start</button>
 <button (click)=stop()>Stop</button>
 <div class="message">{{seconds()}}</div>
-<app-countdown-child></app-countdown-child>
+<app-countdown-child></app-countdown-child> -->
+
+<!-- 父子组件通过服务通信 -->
+<!-- <h2>发布任务案例</h2>
+<button (click)="announce()" class="btn">发布任务</button>
+
+<app-astronaut-child *ngFor="let astronaut of astronauts" [astronaut]="astronaut"></app-astronaut-child>
+<h3>history log:</h3>
+<ul>
+    <li *ngFor="let msg of history">{{msg}}</li>
+</ul> -->
+
+ <hr>
+ <!-- <div class="wrap">
+    <mat-accordion *ngFor="let i of arr">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{i}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    Type your name and age
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Self aware panel
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>I'm visible because I am open</p>
+            </mat-expansion-panel>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>  -->
+
+<p appHighlight>Higlight</p>
